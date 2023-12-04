@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>WebShop</title>
+   <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+   <div class="wrapper">
+      <%- include('partials/header'); %>
+      <aside class="asidee">
+         <div class="lista-div">
+            <ul class="lista" id="demo">
+               <li>
+                  <a href="/home/getProducts/osobne_ljetne">
+                     <button name="osobne ljetne" class="kategorija-botun">
+                        <p class="kategorija_opcija">OSOBNE LJETNE</p>
+                     </button>
+                  </a>
+               </li>
+               <li>
+                  <a href="/home/getProducts/osobne_zimske">
+                     <button name="osobne zimske" class="kategorija-botun">
+                        <p class="kategorija_opcija">OSOBNE ZIMSKE</p>
+                     </button>
+                  </a>
+               </li>
+               <li>
+                  <a href="/home/getProducts/osobne_cjelogodišnje">
+                     <button name="osobne cjelogodišnje" class="kategorija-botun">
+                        <p class="kategorija_opcija">OSOBNE CJELOGODIŠNJE</p>
+                     </button>
+                  </a>
+               </li>
+               <li>
+                  <a href="/home/getProducts/4x4_ljetne">
+                     <button name="4x4 ljetne" class="kategorija-botun">
+                        <p class="kategorija_opcija">4X4 LJETNE</p>
+                     </button>
+                  </a>
+               </li>
+               <li>
+                  <a href="/home/getProducts/4x4_zimske">
+                     <button name="4x4 zimske" class="kategorija-botun">
+                        <p class="kategorija_opcija">4X4 ZIMSKE</p>
+                     </button>
+                  </a>
+               </li>
+               <li>
+                  <a href="/home/getProducts/teretne">
+                     <button name="teretne" class="kategorija-botun">
+                        <p class="kategorija_opcija">TERETNE</p>
+                     </button>
+                  </a>
+               </li>
+               <li>
+                  <a href="/home/getProducts/rabljene">
+                     <button name="rabljene" class="kategorija-botun">
+                        <p class="kategorija_opcija">RABLJENE</p>
+                     </button>
+                  </a>
+               </li>
+               <li>
+                  <a href="/home/getProducts/kombi_ljetne">
+                     <button name="kombi ljetne" class="kategorija-botun">
+                        <p class="kategorija_opcija">KOMBI LJ.</p>
+                     </button>
+                  </a>
+               </li>
+               <li>
+                  <a href="/home/getProducts/kombi_zimske">
+                     <button name="kombi zimske" class="kategorija-botun">
+                        <p class="kategorija_opcija">KOMBI ZIM.</p>
+                     </button>
+                  </a>
+               </li>
+               <li>
+                  <a href="/home/getProducts/4x4_cjelogodišnje">
+                     <button name="4x4 cjelogodišnje" class="kategorija-botun">
+                        <p class="kategorija_opcija">4X4 CJELOGODIŠNJE</p>
+                     </button>
+                  </a>
+               </li>
+            </ul>
+         </div>
+         <div class="info">
+            <div class="info-dio">
+               <p>
+                  kontakt
+               </p>
+            </div>
+            <div class="info-dio">
+               <p>
+                  newsletter
+               </p>
+            </div>
+            <div class="info-dio">
+               <p>
+                  pretplati se
+               </p>
+            </div>
+         </div>
+
+      </aside>
+      <div class="slika">
+         <img class="picture" src="/images/tires-resizejpg.jpg" alt="gume">
+         <div class="tekst-slika">
+            <p>Dobrodošli u webshop</p>
+         </div>
+      </div>
+
+      <div class="catalog" id="shopp">
+         <% if(selectedCategory==''){%>
+         <% for(const category of data.categories){%>
+         <% for(const product of category.products){%>
+         <div id="<%=product.id%>" class="catalog-item"><img class="catalog-picture" src="/images/<%=product.image%>"
+               alt="guma">
+            <p class="product_name"><%=product.name%></p>
+            <a href="/cart/add/<%=product.id%>">
+               <button id="<%=product.id%>" class="button-cart">
+                  <img class="cart-item-image" src="/images/263142.png" alt="">
+               </button>
+            </a>
+            <div id="<%=product.id%>" class="quantity">
+               <% let search = session.cart.find((x) => x.id === product.id) %>
+               <% if(search){%>
+               <%=search.item  %>
+               <%}%>
+            </div>
+         </div>
+         <%}%>
+               <%}%>
+         <%}else{%>
+               <% for(const category of data.categories){%>
+               <% if(selectedCategory==category.name){ %>
+               <% for(const product of category.products){%>
+               <div id="<%=product.id%>" class="catalog-item"><img class="catalog-picture"
+                     src="/images/<%=product.image%>" alt="guma">
+                  <p class="product_name"><%=product.name%></p>
+                  <a href="/cart/add/<%=product.id%>">
+                     <button id="<%=product.id%>" class="button-cart">
+                        <img class="cart-item-image" src="/images/263142.png" alt="">
+                     </button>
+                  </a>
+                  <div id="<%=product.id%>" class="quantity">
+                     <% let search = session.cart.find((x) => x.id === product.id) %>
+                     <% if(search){%>
+                     <%=search.item  %>
+                     <%}%>
+                  </div>
+               </div>
+               <%}%>
+                     <%}%>
+               <%}%>
+                     <%}%>
+            </div>
+         </div>
+         <script src="/scripts/script.js"></script>
+</body>
+
+</html>

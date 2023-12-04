@@ -1,0 +1,491 @@
+body {
+  background-color: #d7dae5;
+  font-family: "Jost", sans-serif;
+}
+.wrapper {
+  background-color: #d7dae5;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 4fr 6fr 5fr 5fr 5fr;
+  grid-template-areas:
+    "header header header header header"
+    "asidee slika slika slika slika"
+    "asidee catalog catalog catalog catalog";
+}
+.header {
+  height: 110px;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  grid-area: header;
+}
+/*
+.spacer {
+  background-color: red;
+  flex: 0;
+}
+*/
+.logotip {
+  margin-right: 10px;
+  display: flex;
+  flex: 1.2;
+}
+.logotip-slika {
+  max-width: 100%;
+}
+.logotip-botun {
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: transparent;
+}
+.trenutna_kategorija {
+  padding: 1.5rem;
+  width: auto;
+  border: 3px #004aad solid;
+  border-radius: 25px;
+  background-color: white;
+  display: flex;
+  flex: 4;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-family: "Jost", sans-serif;
+}
+.kosarica {
+  margin-top: 10px;
+  flex: 1;
+  margin-left: 10px;
+  padding: 1.5rem;
+  background-color: #004aad;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 25px;
+}
+.kosara_logo {
+  width: 50px;
+}
+.kosaricaa {
+  position: relative;
+}
+.quantity_display {
+  font-family: "Jost", sans-serif;
+  text-align: center;
+  position: absolute;
+  top: -5%;
+  right: -5%;
+  width: 15px;
+  height: 15px;
+  background-color: red;
+  padding: 3px;
+  border-radius: 100%;
+}
+#trenutna_kategorija-display {
+  justify-content: center;
+  font-size: xx-large;
+  font-family: "Jost", sans-serif;
+}
+.povecalo_logo {
+  width: 50px;
+}
+.asidee {
+  background: rgba(215, 218, 229, 1);
+  background: -moz-linear-gradient(
+    top,
+    rgba(215, 218, 229, 1) 0%,
+    rgba(0, 102, 235, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    left bottom,
+    color-stop(0%, rgba(215, 218, 229, 1)),
+    color-stop(100%, rgba(0, 102, 235, 1))
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgba(215, 218, 229, 1) 0%,
+    rgba(0, 102, 235, 1) 100%
+  );
+  background: -o-linear-gradient(
+    top,
+    rgba(215, 218, 229, 1) 0%,
+    rgba(0, 102, 235, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    top,
+    rgba(215, 218, 229, 1) 0%,
+    rgba(0, 102, 235, 1) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(215, 218, 229, 1) 0%,
+    rgba(0, 102, 235, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d7dae5', endColorstr='#0066eb', GradientType=0 );
+  margin-top: -10px;
+  grid-area: asidee;
+  font-size: large;
+  align-items: center;
+}
+
+.lista {
+  background-color: rgb(6, 123, 194, 0.3);
+  align-items: start;
+  padding-left: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: #004aad solid px;
+  border-radius: 10px;
+  width: 90%;
+  margin-left: 2.5%;
+}
+
+.lista li {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: "Jost", sans-serif;
+  font-size: x-large;
+  color: #404165;
+}
+.kategorija_opcija {
+  font-family: "Jost", sans-serif;
+  font-size: 16px;
+}
+.kategorija-botun {
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: transparent;
+  text-align: left;
+  transition: 0.2s;
+}
+.lista li:hover {
+  background-color: rgb(6, 123, 194, 0.3);
+}
+/*
+.kategorija_opcija:hover {
+  transform: translateX(20px);
+  transition: ease-in-out;
+}
+*/
+.kategorija-botun:hover {
+  transform: translateX(20px);
+  transition: ease-in-out 0.3s;
+}
+.lista-div {
+  text-align: left;
+}
+p {
+  color: #404165;
+  font-family: "Jost", sans-serif;
+  font-weight: bold;
+}
+.info {
+  display: flex;
+  flex-flow: column;
+  background-color: rgb(6, 123, 194, 0.3);
+
+  border-radius: 10px;
+  text-align: center;
+  width: 90%;
+  margin-left: 4.5%;
+}
+.info-dio {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+ul {
+  list-style-type: none;
+}
+.slika {
+  grid-area: slika;
+  position: relative;
+  height: 400px;
+}
+.tekst-slika {
+  position: absolute;
+  font-family: "Jost", sans-serif;
+  font-weight: 700;
+  top: 16px;
+  left: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: rgb(6, 123, 194, 0.9);
+  font-size: x-large;
+  -webkit-box-shadow: 7px 10px 22px -6px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 7px 10px 22px -6px rgba(0, 0, 0, 0.64);
+  box-shadow: 7px 10px 22px -6px rgba(0, 0, 0, 0.64);
+}
+.picture {
+  height: 400px;
+  width: 100%;
+  align-items: center;
+}
+.catalog {
+  grid-area: catalog;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-template-rows: auto;
+  grid-column-gap: 50px;
+  grid-row-gap: 30px;
+}
+.catalog-item {
+  position: relative;
+  margin: 10px;
+  height: 240px;
+  width: 170px;
+  border-radius: 10px;
+  font-family: "Jost", sans-serif;
+  font-weight: 300;
+  background-color: rgb(6, 123, 194, 0.2);
+  justify-content: center;
+  text-align: center;
+  -webkit-box-shadow: 7px 10px 22px -6px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 7px 10px 22px -6px rgba(0, 0, 0, 0.64);
+  box-shadow: 7px 10px 22px -6px rgba(0, 0, 0, 0.64);
+  transition: 0.2s;
+}
+.product_name {
+  width: 160px;
+  padding-left: 5px;
+}
+.quantity {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  position: absolute;
+  top: 90%;
+  right: 3%;
+  justify-content: center;
+  align-items: center;
+}
+.item-display {
+  border-radius: 10px;
+  background-color: rgb(6, 123, 194, 0.2);
+  margin-top: 1px;
+  justify-content: center;
+  align-items: center;
+}
+.catalog-item:hover {
+  background-color: rgb(6, 123, 194, 0.4);
+  -webkit-box-shadow: 7px 10px 22px -6px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 7px 10px 22px -6px rgba(0, 0, 0, 0.8);
+  box-shadow: 7px 10px 22px -6px rgba(0, 0, 0, 0.8);
+  transform: scale(110%);
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.4s;
+}
+
+.catalog-item:hover img {
+  display: block;
+}
+.button-cart {
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: transparent;
+}
+.cart-item-image {
+  display: none;
+  position: absolute;
+  top: 58%;
+  right: 40%;
+  width: 20px;
+  background-color: rgb(213, 213, 213);
+  padding: 5px;
+  border-radius: 10px;
+  -webkit-box-shadow: 7px 10px 22px -6px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 7px 10px 22px -6px rgba(0, 0, 0, 0.64);
+  box-shadow: 7px 10px 22px -6px rgba(0, 0, 0, 0.64);
+}
+.cart-item-image:hover {
+  background-color: rgb(152, 152, 152);
+}
+
+@keyframes mymove {
+  50% {
+    transform: rotate(360deg);
+  }
+}
+
+.catalog-picture {
+  width: 100%;
+  height: 170px;
+  justify-content: center;
+  align-items: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+@media screen and (max-width: 1500px) {
+  .catalog {
+    grid-template-columns: auto auto auto auto;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .trenutna_kategorija {
+    height: 50px;
+  }
+  .header {
+    display: grid;
+    grid-template-areas:
+      "logo spacer spacer spacer spacer"
+      "kategorija kategorija kategorija kosarica kosarica";
+    margin-bottom: 160px;
+    grid-row-gap: 10px;
+  }
+  .catalog {
+    grid-template-columns: auto auto auto;
+  }
+  .wrapper {
+    grid-template-columns: 5fr 6fr 5fr 5fr 5fr;
+    grid-template-areas:
+      "header header header header header"
+      "header header header header header"
+      "slika slika slika slika slika"
+      "asidee catalog catalog catalog catalog";
+  }
+  .logotip {
+    grid-area: logo;
+    margin-left: -55px;
+  }
+  .trenutna_kategorija {
+    grid-area: kategorija;
+    margin-left: -55px;
+  }
+  .kosarica {
+    grid-area: kosarica;
+    margin-right: -55px;
+  }
+  .spacer {
+    grid-area: spacer;
+  }
+}
+
+.wrapper-cart {
+  background-color: #d7dae5;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 4fr 6fr 5fr 5fr 5fr;
+  grid-template-areas:
+    "header header header header header"
+    "cart cart cart cart cart"
+    "cart cart cart cart cart";
+}
+.cart-outer {
+  font-family: "Jost", sans-serif;
+  grid-area: cart;
+  width: 100%;
+  height: 100%;
+  /*
+  border: 2px #004aad solid;
+  */
+  background: #d7dae5;
+}
+.cart-head {
+  text-align: center;
+}
+.cart {
+  margin-left: 10%;
+  margin-right: 2.5%;
+  margin-top: 20px;
+  width: 80%;
+  height: 100%;
+  border-radius: 25px;
+  justify-content: space-around;
+  background: rgba(0, 102, 235, 0.5);
+}
+@media screen and(max-width: 1024px) {
+  .header {
+    display: grid;
+    grid-template-areas:
+      "logo spacer spacer spacer spacer"
+      "kategorija kategorija kategorija kosarica kosarica";
+    margin-bottom: 150px;
+    grid-row-gap: 10px;
+  }
+}
+.cart-naslov {
+  height: 100px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.item-in-cart {
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 100px;
+  display: flex;
+  margin-bottom: 50px;
+}
+.cart-naziv {
+  align-items: center;
+  margin-top: 35px;
+  margin-left: 50px;
+  padding-top: 15px;
+}
+.item-in-cart-image {
+  border-radius: 10px;
+  width: 100px;
+  height: 120px;
+  flex: 1;
+}
+.spacer-cart {
+  flex: 4;
+}
+.cart-brojevi {
+  flex: 1.5;
+  justify-content: space-between;
+  display: flex;
+  padding-top: 25px;
+}
+
+.cart-minus-div {
+  width: 10px;
+  flex: 1;
+}
+.cart-plus-div {
+  width: 10px;
+  flex: 1;
+}
+.cart-plus {
+  width: 40px;
+}
+.cart-kolicina {
+  width: 10px;
+  text-align: center;
+  font-size: x-large;
+  padding-top: 7px;
+  margin-left: 40px;
+  flex: 2;
+}
+.cart-minus {
+  width: 40px;
+}
+.cart-plus-button {
+  width: 40px;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: transparent;
+}
+.cart-minus-button {
+  width: 40px;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: transparent;
+  justify-content: center;
+  margin-left: 30px;
+}
+.prazna_kosarica {
+  text-align: center;
+  font-size: x-large;
+}
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;500;700&display=swap");
+
+@media screen and (max-width: 1180px) {
+  .spacer-cart {
+    flex: 2;
+  }
+}

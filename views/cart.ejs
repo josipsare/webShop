@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+   <div class="wrapper-cart">
+      <div class="header">
+         <span class="logotip">
+            <a href="/home">
+               <button class="logotip-botun" id="gumb">
+                  <img class="logotip-slika" src="/images/Sare Logistika (3) crop.png" alt="logo">
+               </button>
+            </a>
+         </span>
+         <span class="spacer">
+         </span>
+         <span class="trenutna_kategorija">
+            <p id="trenutna_kategorija-display">
+               <%=title  %>
+            </p>
+         </span>
+         <span class="kosarica">
+            <span class="kosaricaa">
+               <a href="/cart">
+                  <img class="kosara_logo" src="/images/263142.png" alt="kosara">
+               </a>
+               <div class="quantity_display" id="quantity_display">
+                  <%= totalQ  %>
+               </div>
+            </span>
+            <span>
+               <img class="povecalo_logo" src="/images/Magnifierpng.parspng.com-2.png" alt="povecalo">
+            </span>
+         </span>
+      </div>
+      <div class="cart-outer">
+         <div class="cart-head">
+            <p>Košarica</p>
+         </div>
+         <div class="cart">
+            <div class="cart-naslov">
+               <span>
+                  <p>NAZIV PROIZVODA</p>
+               </span>
+               <span> </span>
+               <span>
+                  <p>KOLIČINA</p>
+               </span>
+            </div>
+            <div id="items_cart">
+               <%for (const product of list) { %>
+               <div class="item-in-cart">
+                  <span><img class="item-in-cart-image" src="../images/<%=product.image%>" alt=""></span>
+                  <span class="cart-naziv"><%=product.name %></span>
+                  <span class="spacer-cart"></span>
+                  <span class="cart-brojevi">
+                     <div class="cart-minus-div">
+                        <a href="/cart/remove/<%=product.id%>">
+                           <button id="<%=product.id%>" class="cart-minus-button">
+                              <img class="cart-minus" src="/images/minus.png" alt="">
+                           </button>
+                        </a>
+                     </div>
+                     <div id="<%=product.id%>" class="cart-kolicina">
+                        <%=product.item%>
+                     </div>
+                     <div class="cart-plus-div">
+                        <a href="/cart/add/<%=product.id%>">
+                           <button id="<%=product.id%>" class="cart-plus-button">
+                              <img class="cart-plus" src="/images/plus.png" alt="">
+                           </button>
+                        </a>
+                     </div>
+                  </span>
+               </div>
+               <%}%>
+            </div>
+         </div>
+      </div>
+   </div>
+   <script src="/scripts/cart.js"></script>
+</body>
+
+</html>
